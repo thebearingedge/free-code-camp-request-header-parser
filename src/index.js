@@ -4,10 +4,11 @@ import express from 'express'
 
 const app = express()
 
+
 app.enable('trust proxy')
 
 
-app.get('/', ({ ip, headers }, res) => {
+app.get('/', ({ ip, headers, ips }, res) => {
 
   const ipaddress = (headers['x-forwarded-for'] || [0])[0] || ip
 
@@ -16,7 +17,7 @@ app.get('/', ({ ip, headers }, res) => {
 
   const [ language ] = headers['accept-language'].match(/.+(?=,)/)
 
-  res.json({ ipaddress, language, software })
+  res.json({ ipaddress, language, software, ips })
 })
 
 

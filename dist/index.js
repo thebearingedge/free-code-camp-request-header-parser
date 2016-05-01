@@ -15,6 +15,7 @@ app.enable('trust proxy');
 app.get('/', function (_ref, res) {
   var ip = _ref.ip;
   var headers = _ref.headers;
+  var ips = _ref.ips;
 
 
   var ipaddress = (headers['x-forwarded-for'] || [0])[0] || ip;
@@ -34,7 +35,7 @@ app.get('/', function (_ref, res) {
   var language = _headers$acceptLangu2[0];
 
 
-  res.json({ ipaddress: ipaddress, language: language, software: software });
+  res.json({ ipaddress: ipaddress, language: language, software: software, ips: ips });
 });
 
 app.listen(process.env.PORT || 3000);
