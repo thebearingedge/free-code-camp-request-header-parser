@@ -1,6 +1,5 @@
 
 import express from 'express'
-import useragent from 'ua-parser-js'
 
 
 const app = express()
