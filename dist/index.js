@@ -6,10 +6,6 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _uaParserJs = require('ua-parser-js');
-
-var _uaParserJs2 = _interopRequireDefault(_uaParserJs);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
