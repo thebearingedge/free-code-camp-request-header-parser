@@ -12,6 +12,7 @@ var app = (0, _express2.default)();
 
 app.get('/', function (_ref, res) {
   var ip = _ref.ip;
+  var ips = _ref.ips;
   var headers = _ref.headers;
 
 
@@ -32,7 +33,7 @@ app.get('/', function (_ref, res) {
   var language = _headers$acceptLangu2[0];
 
 
-  res.json({ ipaddress: ipaddress, language: language, software: software });
+  res.json({ ipaddress: ipaddress, language: language, software: software, ips: ips });
 });
 
 app.listen(process.env.PORT || 3000);

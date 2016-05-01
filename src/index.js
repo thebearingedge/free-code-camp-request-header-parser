@@ -5,7 +5,7 @@ import express from 'express'
 const app = express()
 
 
-app.get('/', ({ ip, headers }, res) => {
+app.get('/', ({ ip, ips, headers }, res) => {
 
   const ipaddress = ip
 
@@ -14,7 +14,7 @@ app.get('/', ({ ip, headers }, res) => {
 
   const [ language ] = headers['accept-language'].match(/.+(?=,)/)
 
-  res.json({ ipaddress, language, software })
+  res.json({ ipaddress, language, software, ips })
 })
 
 
