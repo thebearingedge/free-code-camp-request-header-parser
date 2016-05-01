@@ -4,6 +4,8 @@ import express from 'express'
 
 const app = express()
 
+app.enable('trust proxy')
+
 
 app.get('/', ({ ip, headers }, res) => {
 
