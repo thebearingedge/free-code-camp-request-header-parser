@@ -35,4 +35,4 @@ app.get('/', function (_ref, res) {
   res.json({ ipaddress: ipaddress, language: language, software: software });
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
