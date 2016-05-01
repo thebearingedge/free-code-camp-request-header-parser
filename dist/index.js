@@ -12,11 +12,10 @@ var app = (0, _express2.default)();
 
 app.get('/', function (_ref, res) {
   var ip = _ref.ip;
-  var ips = _ref.ips;
   var headers = _ref.headers;
 
 
-  var ipaddress = ip;
+  var ipaddress = (headers['x-forwarded-for'] || [0])[0] || ip;
 
   var _headers$userAgent$m = headers['user-agent'].match(/\(([^\)]+)\)/);
 
@@ -33,7 +32,7 @@ app.get('/', function (_ref, res) {
   var language = _headers$acceptLangu2[0];
 
 
-  res.json({ ipaddress: ipaddress, language: language, software: software, ips: ips });
+  res.json({ ipaddress: ipaddress, language: language, software: software });
 });
 
 app.listen(process.env.PORT || 3000);

@@ -5,16 +5,16 @@ import express from 'express'
 const app = express()
 
 
-app.get('/', ({ ip, ips, headers }, res) => {
+app.get('/', ({ ip, headers }, res) => {
 
-  const ipaddress = ip
+  const ipaddress = (headers['x-forwarded-for'] || [0])[0] || ip
 
   const [ ua ] = headers['user-agent'].match(/\(([^\)]+)\)/)
   const software = ua.replace('(', '').replace(')', '')
 
   const [ language ] = headers['accept-language'].match(/.+(?=,)/)
 
-  res.json({ ipaddress, language, software, ips })
+  res.json({ ipaddress, language, software })
 })
 
 
