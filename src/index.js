@@ -8,7 +8,7 @@ const app = express()
 app.enable('trust proxy')
 
 
-app.get('/', ({ ip, headers, ips }, res) => {
+app.get('/', ({ headers, ips }, res) => {
 
   const [ ipaddress ] = ips
 
